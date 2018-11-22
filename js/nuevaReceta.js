@@ -14,6 +14,7 @@ function guarda() {
             "El texto tiene más de 255 caracteres.");
             console.log(user);
         const ref = firebase.database().ref("Receta/"+user.uid).push();
+    /*const ref = firebase.database().ref("Usuario/"+user.uid+"/Recetas").push();*/
         const modelo = {id: ref.key, Nombre: Nombre, Ingredientes: Ing,Instrucciones: Ins,Tiempo: Tiemp, Categoria: cat};
         ref.set(modelo)
             .then(() => window.location = "perfil.html")
