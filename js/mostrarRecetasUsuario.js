@@ -44,7 +44,7 @@ var ud;
          const nom=document.querySelector("holi");
          const cuerpo = document.querySelector("#cuerpo");
          const template = document.querySelector("template");
-           firebase.database().ref('Receta/'+ud ).on("value",
+           firebase.database().ref('Usuario/'+ud+"/Recetas" ).on("value",
                dataSnapshot => {
                  cuerpo.innerHTML = "";
                  dataSnapshot.forEach(ds => {
@@ -54,6 +54,9 @@ var ud;
                    const tiempo = template.content.querySelector("#tiempo");
                    tiempo.textContent = modelo.Tiempo;
                    const cat = template.content.querySelector("#categoria");
+                   cat.textContent = modelo.Categoria;
+                   const cat = template.content.querySelector("id");
+                   document.getElementById("myImg").src = modelo.Imagen;
                    cat.textContent = modelo.Categoria;
                    const a = template.content.querySelector("a");
                    a.href = "receta.html?id=" + encodeURIComponent(modelo.id);

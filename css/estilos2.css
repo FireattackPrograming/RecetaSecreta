@@ -1,0 +1,11 @@
+p img {max-width: 100%}
+/* El margen alrededor de un párrafo es de un renglón. */
+p {margin: 1em}
+/* Los element que sean hijos de primer nivel de un element tipo label, se
+ * comportan como párrafos.*/
+label > * {display: block}
+/* Los element que sean li e hijos de primer nivel de un element tipo li,
+ * se muestran centrados verticalmente.*/
+li, li > * {vertical-align: middle}
+/* Las imágenes dentro de un ul ocupan el 50% del ancho de su padre. */
+ul img {width: 50%}

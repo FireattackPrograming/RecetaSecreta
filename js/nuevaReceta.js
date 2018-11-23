@@ -1,37 +1,72 @@
+const archivo = document.vista.archivo;
+var ruta;
+
+
+
 function guarda() {
-
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-
-      try {
-        const cat = document.getElementById("categoria").value;
-        const Nombre = document.vista.Nombre.value.trim();
-        const Tiemp = document.vista.Tiempo.value.trim();
-          const Ing = document.vista.Ingredientes.value.trim();
+  if(document.vista.archivo.value==""){
+  			alert("complete los campos");
+	}else{
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+          try {
+            const cat = document.getElementById("categoria").value;
+            const Nombre = document.vista.Nombre.value.trim();
+            const Tiemp = document.vista.Tiempo.value.trim();
+            const Ing = document.vista.Ingredientes.value.trim();
             const Ins = document.vista.Instrucciones.value.trim();
-        valida(Nombre, "Falta el texto.");
-        valida(Nombre.length <= 255,
-            "El texto tiene más de 255 caracteres.");
-            console.log(user);
-        const ref = firebase.database().ref("Receta/"+user.uid).push();
-    /*const ref = firebase.database().ref("Usuario/"+user.uid+"/Recetas").push();*/
-        const modelo = {id: ref.key, Nombre: Nombre, Ingredientes: Ing,Instrucciones: Ins,Tiempo: Tiemp, Categoria: cat};
-        ref.set(modelo)
-            .then(() => window.location = "perfil.html")
-            .catch(muestraError);
-      } catch (e) {
-        muestraError(e)
+            valida(Nombre, "Falta el texto.");
+            valida(Nombre.length <= 255,
+                "El texto tiene más de 255 caracteres.");
+                console.log(user);
+                  const seleccion = archivo.files[0];
+                  const nombre = seleccion.name;
+                  firebase.storage().ref(nombre).put(seleccion)
+                      .then(snapshot => snapshot.ref.getDownloadURL())
+                      .then(url => {
+                        ruta = url;
+                        const ref = firebase.database().ref("Usuario/"+user.uid+"/Recetas").push();
+                        /*const ref = firebase.database().ref("Usuario/"+user.uid+"/Recetas").push();*/
+                        const modelo = {id: ref.key, Nombre: Nombre, Ingredientes: Ing,Instrucciones: Ins,Tiempo: Tiemp, Categoria: cat, Imagen: ruta};
+                        ref.set(modelo)
+                            .then(() => window.location = "perfil.html")
+                            .catch(muestraError);
+                      })
+                      .catch(muestraError);
+          } catch (e) {
+            muestraError(e)
+          }
+
+      } else {
+        alert("Debes iniciar sesion para ingresar a esta pagina");
       }
-
-  } else {
-
-    alert("Debes iniciar sesion para ingresar a esta pagina");
-
+    });
   }
-});
+
 }
 
 
+function agrega() {
+}
+
+
+function muestraSeleccion() {
+
+  if (archivo.files && archivo.files[0]) {
+    const reader = new FileReader();
+    reader.onload = () => img.src = reader.result;
+    reader.onerror = () => muestraError(reader.error);
+    reader.readAsDataURL(archivo.files[0]);
+  }
+}
+
+function elimina(li, nombre) {
+  // Se elimina el archivo del servicio storage de Firebase.
+  firebase.storage().ref(nombre).delete()
+      // Después de eliminar el archivo, se elimina el li.
+      .then(ul.removeChild(li))
+      .catch(muestraError);
+}
 
 function valida(condicion, mensaje) {
   if (!condicion) {

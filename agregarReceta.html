@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilos2.css">
         <!-- Firebase y custom Elements para la pagina -->
         <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
         <script src="js/components/pie-pagina.js" defer></script>
@@ -87,7 +88,7 @@
     	                  Categoria:
     	                </div>
   	                </div>
- 
+
                   <select id="categoria" name="categoria">
                     <option value="PANES Y MASAS">PANES Y MASAS</option>
                     <option value="POSTRES">POSTRES</option>
@@ -98,7 +99,16 @@
                     <option value="MARISCOS Y PESCADOS">MARISCOS Y PESCADOS</option>
                     <option value="SOPAS Y CALDOS">SOPAS Y CALDOS</option>
                   </select><br><br>
-              </div>
+              </div><br>
+              <div class="col-md-12">
+                <center>
+                  <div class="form-group">
+                    <input type="file" name="archivo" placeholder="Archivo"
+                            accept=".png,.jpg,.jpeg,.gif">
+                  </div>
+                </center>
+              </div><br>
+              <br>
               <div class="form-group">
                 <textarea name="Ingredientes" required  cols="30" rows="7" class="form-control" placeholder="Ingredientes"></textarea>
               </div>
@@ -116,8 +126,26 @@
               </div>
 
             </form>
-
-
+            <ul></ul>
+            <!-- Un template es un element que no se muestra en la p�gina, pero
+            del cual se pueden hacer muchas copias. En este caso, los duplicados
+            se colocan dentro le la etiqueta ul. que est� arriba. -->
+            <template>
+              <li>
+                <img id="im"><!-- imagen-->
+                <span></span><!-- texto dentro de un p�rrafo -->
+                <button type="button">X</button>
+                <div id="res">asd</div>
+              </li>
+            </template>
+            <template>
+              <li>
+                <img><!-- imagen-->
+                <span></span><!-- texto dentro de un p�rrafo -->
+                <button type="button">X</button>
+                <div id="res">asd</div>
+              </li>
+            </template>
 
 
           </div>
