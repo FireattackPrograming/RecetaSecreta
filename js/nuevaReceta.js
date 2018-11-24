@@ -18,19 +18,22 @@ function guarda() {
             valida(Nombre, "Falta el texto.");
             valida(Nombre.length <= 255,
                 "El texto tiene más de 255 caracteres.");
-                console.log(user);
                   const seleccion = archivo.files[0];
                   const nombre = seleccion.name;
                   firebase.storage().ref(nombre).put(seleccion)
                       .then(snapshot => snapshot.ref.getDownloadURL())
                       .then(url => {
                         ruta = url;
-                        const ref = firebase.database().ref("Usuario/"+user.uid+"/Recetas").push();
-                        /*const ref = firebase.database().ref("Usuario/"+user.uid+"/Recetas").push();*/
-                        const modelo = {id: ref.key, Nombre: Nombre, Ingredientes: Ing,Instrucciones: Ins,Tiempo: Tiemp, Categoria: cat, Imagen: ruta};
+
+                        const ref = firebase.database().ref("Receta").push();
+                        var keyReceta=ref.key;
+                        const ref1 = firebase.database().ref("Usuario/"+user.uid+"/Recetas/"+keyReceta).set(true);
+                        const modelo = {id: keyReceta, Nombre: Nombre, Ingredientes: Ing,Instrucciones: Ins,Tiempo: Tiemp, Categoria: cat, Imagen: ruta};
                         ref.set(modelo)
                             .then(() => window.location = "perfil.html")
                             .catch(muestraError);
+
+
                       })
                       .catch(muestraError);
           } catch (e) {

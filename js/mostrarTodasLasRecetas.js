@@ -47,6 +47,9 @@ function mostrarRecetasTodas() {
               tiempo.textContent = modelo.Tiempo;
               const cat = template.content.querySelector("#categoria");
               cat.textContent = modelo.Categoria;
+              const img = template.content.querySelector("img");
+              console.log(modelo.Imagen);
+              img.src = modelo.Imagen;
               cuerpo.appendChild(document.importNode(template.content, true));
             })
           },
