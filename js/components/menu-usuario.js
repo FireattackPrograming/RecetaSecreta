@@ -16,9 +16,10 @@
       	      </button>
       	      <div class="collapse navbar-collapse" id="ftco-nav">
       	        <ul class="navbar-nav ml-auto">
-      	          <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
-      	          <li class="nav-item"><a href="recetas.html" class="nav-link">Recetas</a></li>
-      	          <li class="nav-item"><a href="perfil.html" class="nav-link"><div id="nombreUsuario"></div></a></li>
+      	          <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+      	          <li class="nav-item"><a href="../recetas.html" class="nav-link">Recetas</a></li>
+      	          <li class="nav-item"><a href="../categorias.html" class="nav-link">Categorias</a></li>
+      	          <li class="nav-item"><a href="../perfil.html" class="nav-link"><div id="nombreUsuario"></div></a></li>
       	        </ul>
       	      </div>
       		  </div>

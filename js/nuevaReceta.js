@@ -1,11 +1,38 @@
 const archivo = document.vista.archivo;
 var ruta;
 
-
-
 function guarda() {
   if(document.vista.archivo.value==""){
-  			alert("complete los campos");
+  			ruta="https://firebasestorage.googleapis.com/v0/b/refra-f8762.appspot.com/o/Captura.JPG?alt=media&token=f1a42a48-a2f3-4c06-af2e-b94d8c07b455";
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+              try {
+                const cat = document.getElementById("categoria").value;
+                const Nombre = document.vista.Nombre.value.trim();
+                const Tiemp = document.vista.Tiempo.value.trim();
+                const Ing = document.vista.Ingredientes.value.trim();
+                const Ins = document.vista.Instrucciones.value.trim();
+                valida(Nombre, "Falta el texto.");
+                valida(Nombre.length <= 255,
+                    "El texto tiene más de 255 caracteres.");
+
+                          const ref = firebase.database().ref("Receta").push();
+                          var keyReceta=ref.key;
+                          const ref1 = firebase.database().ref("Usuario/"+user.uid+"/Recetas/"+keyReceta).set(true);
+                          const modelo = {id: keyReceta, Nombre: Nombre, Ingredientes: Ing,Instrucciones: Ins,Tiempo: Tiemp, Categoria: cat, Imagen: ruta};
+                          ref.set(modelo)
+                              .then(() => window.location = "perfil.html")
+                              .catch(muestraError);
+
+
+              } catch (e) {
+                muestraError(e)
+              }
+
+          } else {
+            alert("Debes iniciar sesion para ingresar a esta pagina");
+          }
+        });
 	}else{
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -24,7 +51,6 @@ function guarda() {
                       .then(snapshot => snapshot.ref.getDownloadURL())
                       .then(url => {
                         ruta = url;
-
                         const ref = firebase.database().ref("Receta").push();
                         var keyReceta=ref.key;
                         const ref1 = firebase.database().ref("Usuario/"+user.uid+"/Recetas/"+keyReceta).set(true);
@@ -32,10 +58,10 @@ function guarda() {
                         ref.set(modelo)
                             .then(() => window.location = "perfil.html")
                             .catch(muestraError);
-
-
                       })
-                      .catch(muestraError);
+                      ;
+
+
           } catch (e) {
             muestraError(e)
           }
@@ -44,8 +70,8 @@ function guarda() {
         alert("Debes iniciar sesion para ingresar a esta pagina");
       }
     });
-  }
 
+}
 }
 
 

@@ -26,149 +26,205 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/estilos.css">
         <!-- Firebase y custom Elements para la pagina -->
         <script src="js/components/pie-pagina.js" defer></script>
         <script src="js/components/menu-publico.js" defer></script>
         <script src="js/components/menu-usuario.js" defer></script>
   </head>
-  <body style="background: black;">
+  <body>
+    <!-- Web component para el menu dentro de un div-->
+        <div id="menu"></div>
 
-
-
-                <!-- Web component para el menu dentro de un div-->
-                    <div id="menu"></div>
-
-
-
-
-
-
-<br><br><br><br>
-<!-- Cabecera  -->
-<div class="container">
-<div class="row profile">
-<div class="col-md-3">
-  <div class="profile-sidebar">
-    <!-- SIDEBAR USERPIC -->
-    <center><div class="profile-userpic" id="fotoPerfil"></div><center>
-    <!-- END SIDEBAR USERPIC -->
-    <!-- SIDEBAR USER TITLE -->
-    <div class="profile-usertitle">
-      <div class="profile-usertitle-name" id="nombreUser">
-      </div>
-    </div>
-    <!-- END SIDEBAR USER TITLE -->
-    <!-- SIDEBAR BUTTONS -->
-    <div class="profile-userbuttons">
-      <button type="button" class="btn btn-danger btn-sm" id="cerrar">Cerrar Sesion</button>
-    </div>
-    <!-- END SIDEBAR BUTTONS -->
-    <!-- SIDEBAR MENU -->
-    <div class="profile-usermenu">
-      <ul class="nav">
-        <li class="active">
-          <a href="perfil.html">
-          <i class="glyphicon glyphicon-home"></i>
-          Recetas </a>
-        </li>
-        <br>
-        <li>
-          <a href="#">
-          <i class="glyphicon glyphicon-user"></i>
-          Favoritos </a>
-        </li>
-        <li>
-          <a href="agregarReceta.html">
-          <i class="glyphicon glyphicon-user"></i>
-          Agregar Receta </a>
-        </li>
-
-      </ul>
-    </div>
-    <!-- END MENU -->
-  </div>
-</div>
-<div class="col-md-9">
-        <div class="profile-content">
-
-          <section class="details-card">
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ftco-animate">
             <center>
-            <div class="col-md-10 col-sm-12 ftco-animate">
-              <h1 class="mb-6">Tus Recetas</h1>
-              <p class="mb-4 mb-md-5">Las recetas que has subido a tu alcance.</p>
+              <h2 class="mb-3">
+                <div id="nombre"></div>
+              </h2>
+            </center>
+            <p>
+              <center>
+              <img src="" alt="" class="img-fluid" id="imagen">
+            </center>
+            </p>
+
+            <h2 class="mb-3 mt-5">Tiempo de preparacion:</h2>
+            <p id="tiempo"></p>
+            <p>
+            <h2 class="mb-3 mt-5">Ingredientes</h2>
+            <p id="ing"></p>
+            <p>
+            <h2 class="mb-3 mt-5">Instrucciones</h2>
+            <p id="ins"></p>
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+              </div>
             </div>
-          </center>
-              <div class="container">
+
+            <div class="about-author d-flex">
+              <div class="bio align-self-md-center mr-5">
+                <img src="images/person_4.jpg" alt="Image placeholder" class="img-fluid mb-4">
+              </div>
+              <div class="desc align-self-md-center">
+                <h3>Lance Smith</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              </div>
+            </div>
 
 
-                <form  name="vista" action="javascript:;" class="contact-form">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input type="text" name="Nombre" required  class="form-control" placeholder="Nombre de la receta">
+            <div class="pt-5 mt-5">
+              <h3 class="mb-5">6 Comments</h3>
+              <ul class="comment-list">
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+
+                  <ul class="children">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/person_1.jpg" alt="Image placeholder">
                       </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Tiempo de preparacion" name="Tiempo" required >
-                        </div>
+                      <div class="comment-body">
+                        <h3>John Doe</h3>
+                        <div class="meta">June 27, 2018 at 2:21pm</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Reply</a></p>
                       </div>
-                      <div class="col-md-6">
-                          <div class="form-group">
-                            Categoria:
+
+
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="images/person_1.jpg" alt="Image placeholder">
                           </div>
-                        </div>
+                          <div class="comment-body">
+                            <h3>John Doe</h3>
+                            <div class="meta">June 27, 2018 at 2:21pm</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                          </div>
 
-                      <select id="categoria" name="categoria">
-                        <option value="PANES Y MASAS">PANES Y MASAS</option>
-                        <option value="POSTRES">POSTRES</option>
-                        <option value="BEBIDAS Y TRAGOS">BEBIDAS Y TRAGOS</option>
-                        <option value="REPOSTERÍA">REPOSTERÍA</option>
-                        <option value="AVES Y CARNES">AVES Y CARNES </option>
-                        <option value="ARROZ, LEGUMBRES Y PASTAS">ARROZ, LEGUMBRES Y PASTAS</option>
-                        <option value="MARISCOS Y PESCADOS">MARISCOS Y PESCADOS</option>
-                        <option value="SOPAS Y CALDOS">SOPAS Y CALDOS</option>
-                      </select><br><br>
+                            <ul class="children">
+                              <li class="comment">
+                                <div class="vcard bio">
+                                  <img src="images/person_1.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                  <h3>John Doe</h3>
+                                  <div class="meta">June 27, 2018 at 2:21pm</div>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                  <p><a href="#" class="reply">Reply</a></p>
+                                </div>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+              </ul>
+              <!-- END comment-list -->
+
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#">
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name">
                   </div>
                   <div class="form-group">
-                    <textarea name="Ingredientes" required  cols="30" rows="7" class="form-control" placeholder="Ingredientes"></textarea>
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
                   </div>
                   <div class="form-group">
-                    <textarea name="Instrucciones"  cols="30" rows="7" class="form-control" placeholder="Instrucciones"></textarea>
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
                   </div>
 
                   <div class="form-group">
-                    <center>
-                      <input type="submit" value="Guardar Receta"  name="Guardar" class="btn btn-primary py-3 px-5">
-                        <input type="button" value="Eliminar" name="Eliminar" class="btn btn-primary py-3 px-5">
-                        <a href="perfil.html">
-                          <input type="button" value="Cancelar" class="btn btn-primary py-3 px-5">
-                        </a>
-                    </center>
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
                   </div>
 
                 </form>
+              </div>
+            </div>
 
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar ftco-animate">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                	<div class="icon">
+	                  <span class="icon-search"></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Buscar...">
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+              <div class="categories">
+                <h3>Categorias</h3>
+                <li><a href="Categorias/ensalada.html">Ensaladas <span><div id="ens"></div></span></a></li>
+                <li><a href="Categorias/carnes.html">Aves y carnes <span><div id="car"></div></span></a></li>
+                <li><a href="Categorias/reposteria.html">Reposteria <span><div id="rep"></div></span></a></li>
+                <li><a href="Categorias/Mariscos.html">Mariscos <span><div id="mar"></div></span></a></li>
+                <li><a href="Categorias/panes.html">Panes y masas <span><div id="pan"></div></span></a></li>
+                <li><a href="Categorias/pastas.html">Pastas y legumbres <span><div id="pas"></div></span></a></li>
+                <li><a href="Categorias/sopas.html">Sopas y caldos <span><div id="sop"></div></span></a></li>
+                <li><a href="Categorias/bebidas.html">Bebidas <span><div id="beb"></div></span></a></li>
 
               </div>
-          </section>
+            </div>
 
-
-
-
-
+            <div class="sidebar-box ftco-animate">
+              <h3>Ultimas Recetas</h3>
+              <div id="ultrec"></div>
 
         </div>
-</div>
-</div>
-<div id="ud">sssss</div>
-</div>
-
-<br><br><br><br>
+      </div>
+    </section> <!-- .section -->
 
 
-        <pie-pagina></pie-pagina>
+
+            <pie-pagina></pie-pagina>
+
 
 
 
@@ -190,12 +246,13 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
 
-           <!-- Script para las sesiones -->
-          <script src="js/menu.js"></script>
-         <script src="js/modificarReceta.js"></script>
-         <script src="js/user.js"></script>
+             <!-- Script para las sesiones -->
+            <script src="js/menu.js"></script>
+           <script src="js/mostrarReceta.js"></script>
+           <script src="js/user.js"></script>
   </body>
 </html>
