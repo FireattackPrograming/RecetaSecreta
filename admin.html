@@ -69,20 +69,25 @@
     <div class="profile-usermenu">
       <ul class="nav">
         <li class="active">
-          <a href="perfil.html">
+          <a href="#">
           <i class="glyphicon glyphicon-home"></i>
-          Recetas </a>
+          Inicio</a>
         </li>
         <br>
         <li>
           <a href="#">
           <i class="glyphicon glyphicon-user"></i>
-          Favoritos </a>
+          Usuarios </a>
         </li>
         <li>
           <a href="agregarReceta.html">
           <i class="glyphicon glyphicon-user"></i>
-          Agregar Receta </a>
+          Recetas</a>
+        </li>
+        <li>
+          <a href="agregarReceta.html">
+          <i class="glyphicon glyphicon-user"></i>
+          Reportes</a>
         </li>
 
       </ul>
@@ -93,75 +98,44 @@
 <div class="col-md-9">
         <div class="profile-content">
 
-          <section class="details-card">
-            <center>
-            <div class="col-md-10 col-sm-12 ftco-animate">
-              <h1 class="mb-6">Tus Recetas</h1>
-              <p class="mb-4 mb-md-5">Las recetas que has subido a tu alcance.</p>
-            </div>
-          </center>
-              <div class="container">
-
-
-                <form  name="vista" action="javascript:;" class="contact-form">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input type="text" name="Nombre" required  class="form-control" placeholder="Nombre de la receta">
+                    <section class="details-card">
+                      <center>
+                      <div class="col-md-10 col-sm-12 ftco-animate">
+                        <h1 class="mb-6">Tus Recetas</h1>
+                        <p class="mb-4 mb-md-5">Las recetas que has subido a tu alcance.</p>
                       </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Tiempo de preparacion" name="Tiempo" required >
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                          <div class="form-group">
-                            Categoria:
-                          </div>
-                        </div>
-
-                      <select id="categoria" name="categoria">
-                        <option value="PANES Y MASAS">PANES Y MASAS</option>
-                        <option value="POSTRES">POSTRES</option>
-                        <option value="BEBIDAS Y TRAGOS">BEBIDAS Y TRAGOS</option>
-                        <option value="REPOSTERÍA">REPOSTERÍA</option>
-                        <option value="AVES Y CARNES">AVES Y CARNES </option>
-                        <option value="ARROZ, LEGUMBRES Y PASTAS">ARROZ, LEGUMBRES Y PASTAS</option>
-                        <option value="MARISCOS Y PESCADOS">MARISCOS Y PESCADOS</option>
-                        <option value="SOPAS Y CALDOS">SOPAS Y CALDOS</option>
-                      </select><br><br>
-                  </div><br>
-                    <center>
-                      <div class="form-group">
-                        <input type="file" name="archivo" placeholder="Archivo"
-                                accept=".png,.jpg,.jpeg,.gif">
-                      </div>
-                    </center><br>
-                  <div class="form-group">
-                    <textarea name="Ingredientes" required  cols="30" rows="7" class="form-control" placeholder="Ingredientes"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <textarea name="Instrucciones"  cols="30" rows="7" class="form-control" placeholder="Instrucciones"></textarea>
-                  </div>
-
-                  <div class="form-group">
-                    <center>
-                      <input type="submit" value="Guardar Receta"  name="Guardar" class="btn btn-primary py-3 px-5">
-                        <input type="button" value="Eliminar" name="Eliminar" class="btn btn-primary py-3 px-5">
-                        <a href="perfil.html">
-                          <input type="button" value="Cancelar" class="btn btn-primary py-3 px-5">
-                        </a>
                     </center>
-                  </div>
 
-                </form>
+                        <div class="container">
+                            <div class="row" id="cuerpo">
+
+                              Cargando...
+
+                            </div>
+                        </div>
+
+                    </section>
 
 
-              </div>
-          </section>
 
 
+                  <main role="main">
+                    <template>
+                      <div class="col-md-4">
+                          <div class="card-content">
+                              <div class="card-img">
+                                  <img src="https://placeimg.com/380/230/animals" alt="">
+                              </div>
+                              <div class="card-desc">
+                                  <h3><p id="nombre">Sin nombre</p></h3>
+                              <center>
+                                   <a href="" class="btn-card">Eliminar</a>
+                                 </center>
+                              </div>
+                          </div>
+                      </div>
+                    </template>
+                  </main>
 
 
 
@@ -169,7 +143,7 @@
         </div>
 </div>
 </div>
-<div id="ud">sssss</div>
+
 </div>
 
 <br><br><br><br>
@@ -202,7 +176,7 @@
 
            <!-- Script para las sesiones -->
           <script src="js/menu.js"></script>
-         <script src="js/modificarReceta.js"></script>
+         <script src="js/admin.js"></script>
          <script src="js/user.js"></script>
   </body>
 </html>

@@ -40,7 +40,7 @@ function ultimasRecetas(){
          <div class="block-21 mb-4 d-flex">
            <a class="blog-img mr-4" style="background-image: url(`+modelo.Imagen+`);"></a>
            <div class="text">
-             <h3 class="heading"><a href="#">`+modelo.Nombre+`</a></h3>
+             <h3 class="heading"><a href="../VerReceta.html?id=`+ encodeURIComponent(modelo.id)+`">`+modelo.Nombre+`</a></h3>
              <div class="meta">
              </div>
            </div>

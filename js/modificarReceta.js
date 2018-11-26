@@ -4,7 +4,8 @@ const id = parametros.get("id");
 const vista = document.vista;
 vista.Eliminar.addEventListener("click", eliminar);
 var imagen;
-
+const archivo = document.vista.archivo;
+var ruta;
 function actualizar() {
 
   firebase.auth().onAuthStateChanged(function(user) {
@@ -15,15 +16,25 @@ function actualizar() {
         const ing = vista.Ingredientes.value.trim();
         const ins = vista.Instrucciones.value.trim();
         const cat = vista.categoria.value.trim();
-        firebase.database().ref('Receta/' ).child(id).set({
-          Nombre: nom,
-          Tiempo: tiem,
-          Ingredientes : ing,
-          Instrucciones: ins,
-          Categoria: cat,
-          Imagen: imagen,
-          id: id
-        });
+        const seleccion = archivo.files[0];
+        const nombre = seleccion.name;
+        firebase.storage().ref(nombre).put(seleccion)
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(url => {
+              ruta = url;
+              console.log(ruta);
+          firebase.database().ref('Receta/' ).child(id).set({
+            Nombre: nom,
+            Tiempo: tiem,
+            Ingredientes : ing,
+            Instrucciones: ins,
+            Categoria: cat,
+            Imagen: ruta,
+            id: id
+          });
+            })
+            ;
+
         window.location.replace("perfil.html");
 
     } else {

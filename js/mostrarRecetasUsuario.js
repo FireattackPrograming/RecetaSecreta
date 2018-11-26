@@ -10,7 +10,6 @@ var ud;
                  cuerpo.innerHTML = "";
                  dataSnapshot.forEach(ds => {
                    const idReceta = ds.key;
-                   console.log("Id Receta es :"+idReceta);
                    firebase.database().ref('Receta/'+idReceta ).on("value",
                        dataSnapshot1 => {
                          if (dataSnapshot1.exists) {

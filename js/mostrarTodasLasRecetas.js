@@ -50,7 +50,6 @@ function mostrarRecetasTodas() {
             const a = template.content.querySelector("a");
             a.href = "../VerReceta.html?id=" + encodeURIComponent(modelo.id);
             const img = template.content.querySelector("img");
-            console.log(modelo.Imagen);
             img.src = modelo.Imagen;
             cuerpo.appendChild(document.importNode(template.content, true));
           })
